@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CobaController;
-use App\Http\Controllers\TesController;
+use App\Http\Controllers\indexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,8 +26,10 @@ Route::get('tes', function () {
 });
 
 //        nama url  nama controller       nama fungsi
-Route::get('tes', [TesController::class, 'index']); //menampilkan file tes
+Route::get('index', [indexController::class, 'index']); //menampilkan file tes
 
 Route::get('tama', [CobaController::class, 'index']);
 
+Route::get('create', [indexController::class, 'FormTambah'])->name('create.view'); //menampilkan file tambah
 
+Route::post('create-proses', [indexController::class, 'ProsesCreate'])->name ('create.proses'); //proses tambah data
