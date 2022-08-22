@@ -26,10 +26,18 @@ Route::get('tes', function () {
 });
 
 //        nama url  nama controller       nama fungsi
-Route::get('index', [indexController::class, 'index']); //menampilkan file tes
+Route::get('index', [indexController::class, 'index'])->name('home'); //menampilkan file tes
 
 Route::get('tama', [CobaController::class, 'index']);
+
+Route::get('tampilkan-data', [indexController::class, 'tampil'])->name('tampil.data'); //menampilkan data ke table
 
 Route::get('create', [indexController::class, 'FormTambah'])->name('create.view'); //menampilkan file tambah
 
 Route::post('create-proses', [indexController::class, 'ProsesCreate'])->name ('create.proses'); //proses tambah data
+
+Route::get('edit/{id}', [indexController::class, 'edit'])->name('edit.data');//menampilkan form edit data
+
+Route::put('update/{id}', [indexController::class, 'update'])->name('update.data');//proses update data
+
+Route::delete('delete/{id}', [indexController::class, 'delete'])->name('delete.data');//proses delete data
